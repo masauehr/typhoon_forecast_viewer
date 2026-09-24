@@ -50,6 +50,8 @@ React Native + Expo（mobile_app方式）への移行は、具体的な必要性
 
 ## データソースの調査状況
 
+> ⚠️ **2026-09-24 追記**: 気象庁は 2026-05-28 の防災気象情報の新体系移行で台風情報の配信先を変更した。旧 `information/data/typhoon.json` は 2026-05-27 のまま更新されない。**現行は `https://www.jma.go.jp/bosai/typhoon/data/targetTc.json`（発生中の台風一覧）と `typhoon/data/{TC番号}/specifications.json`・`forecast.json`**（形式は `common/jma_api_spec.md` 第8章）。以下の旧パスの記述は、実装時に置き換えること。
+
 - 気象庁は台風情報を `https://www.jma.go.jp/bosai/information/data/typhoon.json`
   （発生中の台風一覧）と `https://www.jma.go.jp/bosai/information/data/typhoon/{fileName}`
   （個別台風の詳細）という無料公開JSONで配信している（[jma_mcp](../jma_mcp/)が既に利用中）。
